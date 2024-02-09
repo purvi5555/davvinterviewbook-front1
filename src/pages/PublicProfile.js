@@ -9,6 +9,7 @@ import { FaTwitterSquare,FaGithubSquare} from "react-icons/fa";
 import moment from 'moment';
 import { useLocation, Link, useNavigate} from "react-router-dom";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 function PublicProfile() {
   /*current user object */
@@ -39,7 +40,7 @@ if (locationData.state && locationData.state.userID) {
   const [createdAt, setCreatedAt] = useState('');
     useEffect(()=>{
         setDarkMode(localStorage.getItem("darkMode"));
-        axios.get(`/getuser?userID=${userID}`)
+        axios.get(`${baseUrl}/getuser?userID=${userID}`)
             .then(res => {
                 if(res.data){
                     setName(res.data[0].name);

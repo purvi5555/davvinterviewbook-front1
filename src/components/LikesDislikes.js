@@ -7,7 +7,7 @@ import LikeIcon from '../assets/images/like.png';
 import DislikeIcon from '../assets/images/dislike.png';
 import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
-
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function LikesDislikes({props}) {
   const loggedIn = localStorage.getItem("loggedIn"); 
   const [likes, setLikes] = useState(0);
@@ -24,7 +24,7 @@ function LikesDislikes({props}) {
   }
 
   const getLikes = () => {
-    axios.post(`/getlikes`, {
+    axios.post(`${baseUrl}/getlikes`, {
         props
       }).then(res => {
           if(res.status === 200){
@@ -41,7 +41,7 @@ function LikesDislikes({props}) {
       });
   }
   const getDislikes = () => {
-    axios.post(`/getdislikes`, {
+    axios.post(`${baseUrl}/getdislikes`, {
         props
       }).then(res => {
           if(res.status === 200){
@@ -66,7 +66,7 @@ function LikesDislikes({props}) {
   const onLike = () => {
     //not liked already
     if(likeAction === null){
-        axios.post(`/uplike`,{variable})
+        axios.post(`${baseUrl}/uplike`,{variable})
         .then(res => {
             if(res.data.success){
                 setLikes(likes+1);
@@ -83,7 +83,7 @@ function LikesDislikes({props}) {
             console.log(err);
         });
     }else{
-        axios.post(`/unlike`,{variable})
+        axios.post(`${baseUrl}/unlike`,{variable})
         .then(res => {
             if(res.data.success){
                 setLikes(likes-1);
@@ -101,7 +101,7 @@ function LikesDislikes({props}) {
 const onDislike = () => {
     //if user not have already dislike
     if(disLikeAction === null){
-        axios.post(`/updislike`,{variable})
+        axios.post(`${baseUrl}/updislike`,{variable})
         .then(res => {
             if(res.data.success){
                 setDisLikes(dislikes+1);
@@ -119,7 +119,7 @@ const onDislike = () => {
             console.log(err);
         });
     }else{
-        axios.post(`/undislike`,{variable})
+        axios.post(`${baseUrl}/undislike`,{variable})
         .then(res => {
             if(res.data.success){
                 setDisLikes(dislikes-1);

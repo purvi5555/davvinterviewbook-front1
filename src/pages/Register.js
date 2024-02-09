@@ -7,6 +7,7 @@ import "../pages/Auth.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ function Register() {
       alert("Please Fill All Input Fields");
     } else {
       axios
-        .post("http://localhost:5000/register", {
+        .post(`${baseUrl}/register`, {
           name: name,
           email: email,
           password: password,

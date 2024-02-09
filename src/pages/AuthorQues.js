@@ -9,6 +9,7 @@ import moment from "moment";
 import LikesDislikes from "../components/LikesDislikes";
 import Close from "@mui/icons-material/Close";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 import jsPDF from 'jspdf';
 
 function AuthorQues() {
@@ -74,7 +75,7 @@ function AuthorQues() {
     // console.log(queryText.length)
     if (queryText.length === 0) {
       axios
-        .get(`/getaquestions?authorID=${authorID}`)
+        .get(`${baseUrl}/getaquestions?authorID=${authorID}`)
         .then((res) => {
           if (res) {
             setQuestions(res.data);
@@ -97,7 +98,7 @@ function AuthorQues() {
 
     if (queryText.length === 0) {
       axios
-        .get(`/getaanswers?userID=${userID}`)
+        .get(`${baseUrl}/getaanswers?userID=${userID}`)
         .then((res) => {
           if (res) {
             setAAnswers(res.data);
@@ -117,7 +118,7 @@ function AuthorQues() {
 
   function showAnswers(id, query, tags) {
     axios
-      .get(`/getanswers?id=${id}`)
+      .get(`${baseUrl}/getanswers?id=${id}`)
       .then((res) => {
         if (res) {
           setAnswers(res.data);
@@ -135,7 +136,7 @@ function AuthorQues() {
   function hideAnswers() {
     if (questionID) {
       axios
-        .post(`/addview?id=${questionID}`, {
+        .post(`${baseUrl}/addview?id=${questionID}`, {
           view: 1,
         })
         .then((res) => {
@@ -162,7 +163,7 @@ function AuthorQues() {
 
   const getQuestions = (skip, limit) => {
     axios
-      .get(`/getaquestions?authorID=${authorID}&limit=${limit}&skip=${skip}`)
+      .get(`${baseUrl}/getaquestions?authorID=${authorID}&limit=${limit}&skip=${skip}`)
       .then((res) => {
         if (res) {
           setQuestions(res.data);
@@ -175,7 +176,7 @@ function AuthorQues() {
 
   const getAAnswers = () => {
     axios
-      .get(`/getaanswers?userID=${userID}`)
+      .get(`${baseUrl}/getaanswers?userID=${userID}`)
       .then((res) => {
         if (res) {
           setAAnswers(res.data);
@@ -190,7 +191,7 @@ function AuthorQues() {
     e.preventDefault();
     if (ans) {
       axios
-        .post(`/addanswer?id=${questionID}`, {
+        .post(`${baseUrl}/addanswer?id=${questionID}`, {
           answer: ans,
           user: user,
           userID: userID,

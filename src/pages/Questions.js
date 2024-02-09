@@ -7,6 +7,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import JoditEditor from "jodit-react";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Questions() {
     
     const authorID = localStorage.getItem("_id");
@@ -188,7 +189,7 @@ function Questions() {
     }, [])
 
     const getQuestions = () => {
-        axios.get(`/getquestions?authorID=${authorID}`).then(res => {
+        axios.get(`${baseUrl}/getquestions?authorID=${authorID}`).then(res => {
             if(res){
                 setQuestions(res.data);
             }
@@ -207,7 +208,7 @@ function Questions() {
 
     const updateQuestion = (e) => {
         e.preventDefault();
-        axios.post('/updatequestion?questionID='+questionID, {
+        axios.post(`${baseUrl}/updatequestion?questionID=`+questionID, {
             query, 
             categoryName,
             categoryID,
@@ -226,7 +227,7 @@ function Questions() {
     const deleteQuestion = (e) => {
         e.preventDefault();
        // console.log(questionID)
-        axios.delete('/deletequestion?questionID='+questionID).then(res => {
+        axios.delete(`${baseUrl}/deletequestion?questionID=`+questionID).then(res => {
             if(res){
                 window.location.reload()
                 toast('Question Deleted Successfully!')

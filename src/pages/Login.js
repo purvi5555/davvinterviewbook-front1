@@ -7,6 +7,7 @@ import "../pages/Auth.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +18,7 @@ function Login() {
       alert("Please Fill Input Fields");
     } else {
       axios
-        .post("/login", {
+        .post(`${baseUrl}/login`, {
           email: email,
           password: password,
         })

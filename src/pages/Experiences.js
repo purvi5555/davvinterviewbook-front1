@@ -6,6 +6,7 @@ import { Link, useNavigate ,useLocation} from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import moment from "moment";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Experience() {
   const location = useLocation();
   let authorID = "";
@@ -128,7 +129,7 @@ function Experience() {
 
   const getExperience = (limit, skip) => {
     axios
-      .get(`/getallexperiences?limit=${limit}&skip=${skip}`)
+      .get(`${baseUrl}/getallexperiences?limit=${limit}&skip=${skip}`)
       .then((res) => {
         if (res) {
           setExperience(res.data);

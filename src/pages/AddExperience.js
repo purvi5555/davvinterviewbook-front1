@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 function Addexperience() {
 
@@ -55,7 +55,7 @@ function Addexperience() {
        
        
         if(experience.query && author && authorID || experience.authorcontact || experience.authoremail  || experience.authorlinkedin || experience.company ){
-            axios.post('/addexperience', {
+            axios.post(`${baseUrl}/addexperience`, {
                 query : experience.query,
                 author: author,
                 authorID: authorID,

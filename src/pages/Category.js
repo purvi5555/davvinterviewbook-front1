@@ -8,6 +8,7 @@ import JoditEditor from "jodit-react";
 import moment from "moment";
 import Close from "@mui/icons-material/Close";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 import LikesDislikes from "../components/LikesDislikes";
 import jsPDF from 'jspdf';
 
@@ -67,7 +68,7 @@ function Category() {
 
   function showAnswers(id, query, tags) {
     axios
-      .get(`/getanswers?id=${id}`)
+      .get(`${baseUrl}/getanswers?id=${id}`)
       .then((res) => {
         if (res) {
           setAnswers(res.data);
@@ -85,7 +86,7 @@ function Category() {
   function hideAnswers() {
     if (questionID) {
       axios
-        .post(`/addview?id=${questionID}`, {
+        .post(`${baseUrl}/addview?id=${questionID}`, {
           view: 1,
         })
         .then((res) => {
@@ -120,7 +121,7 @@ function Category() {
   const getQuestions = (skip, limit) => {
     axios
       .get(
-        `/getcquestions?categoryID=${categoryID}&limit=${limit}&skip=${skip}`
+        `${baseUrl}/getcquestions?categoryID=${categoryID}&limit=${limit}&skip=${skip}`
       )
       .then((res) => {
         if (res) {
@@ -135,7 +136,7 @@ function Category() {
     e.preventDefault();
     if (ans) {
       axios
-        .post(`/addanswer?id=${questionID}`, {
+        .post(`${baseUrl}/addanswer?id=${questionID}`, {
           answer: ans,
           user: user,
           userID: userID,
@@ -163,7 +164,7 @@ function Category() {
     console.log(queryText.length);
     if (queryText.length === 0) {
       axios
-        .get(`/getcquestions?categoryID=${categoryID}`)
+        .get(`${baseUrl}/getcquestions?categoryID=${categoryID}`)
         .then((res) => {
           if (res) {
             setQuestions(res.data);

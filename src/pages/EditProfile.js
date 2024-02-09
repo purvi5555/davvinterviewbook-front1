@@ -8,6 +8,7 @@ import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
 import Defaultuser from '../assets/images/defaultuser.jpg';
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 function EditProfile() {
 
@@ -34,7 +35,7 @@ function EditProfile() {
 
     useEffect(()=>{
         setDarkMode(localStorage.getItem("darkMode"));
-        axios.get(`/getuser?userID=${userID}`)
+        axios.get(`${baseUrl}/getuser?userID=${userID}`)
             .then(res => {
                 if(res.data){
                     //console.log(res.data)
@@ -72,7 +73,7 @@ function EditProfile() {
             formData.append('gusername', gusername);
 
             if(formData){
-                axios.post(`/editprofile?userID=${userID}`, formData)
+                axios.post(`${baseUrl}/editprofile?userID=${userID}`, formData)
                 .then(res => {
                         if(res.data){
                             //console.log(res.data)

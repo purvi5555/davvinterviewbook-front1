@@ -9,6 +9,7 @@ import JoditEditor from "jodit-react";
 import moment from "moment";
 import Close from "@mui/icons-material/Close";
 
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 import LikesDislikes from "../components/LikesDislikes";
 import jsPDF from 'jspdf';
 
@@ -70,7 +71,7 @@ function Tagged() {
 
   function showAnswers(id, query, tags) {
     axios
-      .get(`/getanswers?id=${id}`)
+      .get(`${baseUrl}/getanswers?id=${id}`)
       .then((res) => {
         if (res) {
           setAnswers(res.data);
@@ -88,7 +89,7 @@ function Tagged() {
   function hideAnswers() {
     if (questionID) {
       axios
-        .post(`/addview?id=${questionID}`, {
+        .post(`${baseUrl}/addview?id=${questionID}`, {
           view: 1,
         })
         .then((res) => {
@@ -114,7 +115,7 @@ function Tagged() {
 
   const getQuestions = (skip, limit) => {
     axios
-      .get(`/gettaggedquestions?tag=${tag}&limit=${limit}&skip=${skip}`)
+      .get(`${baseUrl}/gettaggedquestions?tag=${tag}&limit=${limit}&skip=${skip}`)
       .then((res) => {
         if (res) {
           setQuestions(res.data);
@@ -144,7 +145,7 @@ function Tagged() {
     e.preventDefault();
     if (ans) {
       axios
-        .post(`/addanswer?id=${questionID}`, {
+        .post(`${baseUrl}/addanswer?id=${questionID}`, {
           answer: ans,
           user: user,
           userID: userID,
@@ -180,7 +181,7 @@ function Tagged() {
     console.log(queryText.length);
     if (queryText.length === 0) {
       axios
-        .get(`/gettaggedquestions?tag=${tag}`)
+        .get(`${baseUrl}/gettaggedquestions?tag=${tag}`)
         .then((res) => {
           if (res) {
             setQuestions(res.data);
