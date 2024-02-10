@@ -8,10 +8,9 @@ import { ToastContainer, toast } from "react-toastify";
 import JoditEditor from "jodit-react";
 import moment from "moment";
 import Close from "@mui/icons-material/Close";
-
-const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 import LikesDislikes from "../components/LikesDislikes";
 import jsPDF from 'jspdf';
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 
 function Tagged() {

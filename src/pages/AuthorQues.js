@@ -8,9 +8,8 @@ import JoditEditor from "jodit-react";
 import moment from "moment";
 import LikesDislikes from "../components/LikesDislikes";
 import Close from "@mui/icons-material/Close";
-
-const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 import jsPDF from 'jspdf';
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 function AuthorQues() {
  
