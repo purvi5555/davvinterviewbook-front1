@@ -32,6 +32,7 @@ function Header() {
 
   function signOut(){
     localStorage.clear()
+    window.location.reload()
     navigate(`${baseUrl}/login`);
     toast('Logged Out Successfull!');
   }
