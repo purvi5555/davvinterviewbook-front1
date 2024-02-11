@@ -280,7 +280,7 @@ function Category() {
                   ) : (
                     <div
                       className="btn btn-primary btn-sm mt-2 me-2"
-                      onClick={() => navigate("/login")}
+                      onClick={() => navigate(`${baseUrl}/login`)}
                     >
                       Give Answer
                     </div>

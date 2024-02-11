@@ -78,7 +78,7 @@ function EditProfile() {
                         if(res.data){
                             //console.log(res.data)
                             toast("Profile Edit Success!");
-                            navigate('/dashboard');
+                            navigate(`${baseUrl}/dashboard`);
                             localStorage.setItem("name", res.data.name);
                             localStorage.setItem("photo", res.data.photo);
                             localStorage.setItem("ucategory", res.data.ucategory);

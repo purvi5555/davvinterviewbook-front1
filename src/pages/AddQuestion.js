@@ -221,7 +221,7 @@ function AddQuestion() {
         .then((res) => {
           if (res) {
             toast("Question Added Success!");
-            navigate("/allquestions");
+            navigate(`${baseUrl}/allquestions`);
           }
         })
         .catch((err) => {

@@ -69,7 +69,7 @@ function Addexperience() {
             }).then(res => {
                     if(res){
                         toast("experience Added Success!");
-                        navigate('/allexperiences')
+                        navigate(`${baseUrl}/allexperiences`)
                     }
                 })
                 .catch(err => {

@@ -172,7 +172,7 @@ const onDislike = () => {
     :
     <div className='likeContainer'>
     <div
-        onClick={() => navigate('/login')}
+        onClick={() => navigate(`${baseUrl}/login`)}
         className={`like ${likeAction === 'liked' ? "active" : "" }`}
     >
         <span>{likes}</span>
@@ -188,7 +188,7 @@ const onDislike = () => {
     </div>
     <div
         className={`dislike ${disLikeAction === 'disliked' ? "active" : "" }`}
-        onClick={() => navigate('/login')}
+        onClick={() => navigate(`${baseUrl}/login`)}
     >
         <span>{dislikes}</span>
         {disLikeAction === 'disliked' 
