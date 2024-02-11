@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import LightIcon from '../assets/images/lightmode.png';
 import DarkIcon from '../assets/images/darkmode.png';
 import Logo from '../assets/images/DAVV_logo.png';
+const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 
 function Header() {
 
@@ -27,7 +28,7 @@ function Header() {
 
   function signOut(){
     localStorage.clear()
-    window.location.href = "/";
+    window.location.href = `${baseUrl}/login`;
     toast('Logged Out Successfull!');
   }
   const lightDarkMode = () => {
@@ -48,7 +49,7 @@ function Header() {
       <div class="logod">
       <a href="#home"><img width="42px" height="42px" src={Logo}/></a>
     </div>
-        <Link className='logo' to="/">DAVV InterviewBook</Link>
+        <Link className='logo'>DAVV InterviewBook</Link>
         {/*toggle for the Navbar's content on small screen */}
         <Navbar.Toggle aria-controls="navbarScroll" />
         {/*grouping and hide Navbar content on small screen */}

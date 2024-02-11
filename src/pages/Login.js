@@ -39,7 +39,7 @@ function Login() {
             localStorage.setItem("about", res.data.about);
             localStorage.setItem("token", res.data.token);
             if (res.status === 200) {
-              window.location.href = "/dashboard";
+              window.location.href = `${baseUrl}/dashboard`;
               toast("LoggedIn Successfull!");
             } else {
               window.location.href = "/";
@@ -109,7 +109,7 @@ function Login() {
         </div>
         <div className="mt-3">Not Registered?</div>
         <div className="mt-3">
-          <Link to="/register" className="btn btn-outline-primary">
+          <Link to={`${baseUrl}/register`} className="btn btn-outline-primary">
             Register
           </Link>
         </div>
