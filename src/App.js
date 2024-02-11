@@ -49,6 +49,7 @@ function App() {
   return (
     <Router>
         <Routes>
+        <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/questions/:category" element={<Category/>}/>
           <Route path="/users/:authorID" element={<AuthorQues/>}/>
           <Route path="/questions/tagged/:tag" element={<Tagged/>}/>
