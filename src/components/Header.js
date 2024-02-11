@@ -33,7 +33,7 @@ function Header() {
   function signOut(){
     localStorage.clear()
     window.location.reload()
-    navigate(`${baseUrl}/login`);
+    navigate('/login');
     toast('Logged Out Successfull!');
   }
   const lightDarkMode = () => {
