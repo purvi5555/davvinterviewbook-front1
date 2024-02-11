@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import "../pages/Auth.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from 'react-router-dom';
 
 const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Register() {
@@ -15,7 +16,8 @@ function Register() {
   const [password, setPassword] = useState("");
   const [darkMode, setDarkMode] = useState("light");
   const [selectedCategory, setSelectedCategory] = useState("User Category"); // New state
-  
+  const navigate = useNavigate();
+
 
   const registerForm = () => {
     if (name === "" && email === "" && password === "" && ucategory === "") {
@@ -30,7 +32,7 @@ function Register() {
         })
         .then((res) => {
           if (res.status === 200) {
-            window.location.href = "/login";
+            navigate(`${baseUrl}/login`)
             toast("Registered Successfully!");
           } else {
             window.location.href = "/";
