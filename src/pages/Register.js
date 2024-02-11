@@ -35,7 +35,7 @@ function Register() {
             navigate('/login')
             toast("Registered Successfully!");
           } else {
-            window.location.href = "/";
+            navigate('/')
           }
         });
     }

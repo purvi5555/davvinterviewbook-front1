@@ -28,7 +28,7 @@ function Header() {
 
   function signOut(){
     localStorage.clear()
-    window.location.href = `${baseUrl}/login`;
+    navigate(`${baseUrl}/login`);
     toast('Logged Out Successfull!');
   }
   const lightDarkMode = () => {
