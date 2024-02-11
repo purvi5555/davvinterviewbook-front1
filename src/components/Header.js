@@ -3,6 +3,8 @@ import { Container, Nav } from 'react-bootstrap';
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom';
 import './Header.css'
+import {useNavigate} from 'react-router-dom';
+
 /*react-toastify : show toast notifications in your application */
 /*Toast : The toast function is used to trigger a toast notification and an call this function with
  different parameters to customize the content and appearance of the toast.
@@ -19,6 +21,8 @@ function Header() {
 
   const [loggedIn, setLoggedIn] = useState('');
   const [darkMode, setDarkMode] = useState('light');
+  const navigate = useNavigate();
+  
   /*useEffect hook is used to perform side effects in your functional components. Side effects might include data fetching, subscriptions, manual DOM manipulations, 
   or other operations that need to be performed after the component has rendered. */
   useEffect(() => {
