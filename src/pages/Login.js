@@ -41,8 +41,8 @@ function Login() {
             localStorage.setItem("about", res.data.about);
             localStorage.setItem("token", res.data.token);
             if (res.status === 200) {
-              toast("LoggedIn Successfull!");
               navigate('/dashboard')
+              toast("LoggedIn Successfull!");
             } else {
               navigate('/')
               
