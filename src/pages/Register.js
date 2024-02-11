@@ -32,7 +32,7 @@ function Register() {
         })
         .then((res) => {
           if (res.status === 200) {
-            navigate(`${baseUrl}/login`)
+            navigate('/login')
             toast("Registered Successfully!");
           } else {
             window.location.href = "/";
