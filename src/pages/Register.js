@@ -32,8 +32,8 @@ function Register() {
         })
         .then((res) => {
           if (res.status === 200) {
-            navigate('/login')
             toast("Registered Successfully!");
+            navigate('/login')
           } else {
             navigate('/')
           }
