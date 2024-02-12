@@ -34,8 +34,8 @@ function Sidebar() {
                     Questions
                 </div>
                 <div className="dropdown-menu show">
-                  <NavLink className="dropdown-item" activeclassname="active" to={`${baseUrl}/allquestions`}>My Questions</NavLink>
-                  <NavLink className="dropdown-item" activeclassname="active" to={`${baseUrl}/addquestion`}>Ask Question</NavLink>
+                  <NavLink className="dropdown-item" activeclassname="active" to="/allquestions">My Questions</NavLink>
+                  <NavLink className="dropdown-item" activeclassname="active" to="/addquestion">Ask Question</NavLink>
                 </div>
               </li>
               {ucategory !== 'junior' && (
