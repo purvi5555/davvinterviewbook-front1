@@ -231,7 +231,6 @@ function Questions() {
        // console.log(questionID)
         axios.delete(`${baseUrl}/deletequestion?questionID=`+questionID).then(res => {
             if(res){
-                window.location.reload()
                 navigate('/allquestions')
                 toast('Question Deleted Successfully!')
             }
