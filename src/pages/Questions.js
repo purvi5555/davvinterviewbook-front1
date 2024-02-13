@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import JoditEditor from "jodit-react";
+import {useNavigate} from 'react-router-dom';
 
 const baseUrl = 'https://davvinterviewbook-back.onrender.com'
 function Questions() {
@@ -25,7 +26,8 @@ function Questions() {
         readonly: false,
         height: 400
     };
-
+    const navigate = useNavigate();
+ 
     let tagInput = useRef(null);
 
     const [tags, setTags] = React.useState([]);
@@ -230,6 +232,7 @@ function Questions() {
         axios.delete(`${baseUrl}/deletequestion?questionID=`+questionID).then(res => {
             if(res){
                 window.location.reload()
+                navigate('/allquestions')
                 toast('Question Deleted Successfully!')
             }
         })
